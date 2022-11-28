@@ -22,7 +22,6 @@ services:
 
         depends_on:
             -   db
-        # container_name: cloud-storage-api
 
     db:
         image: postgres:15.1
@@ -30,9 +29,9 @@ services:
         volumes:
             - ./tmp/db:/var/lib/pgsql
         environment:
-            POSTGRES_DB: cloud-storage-api
-            POSTGRES_PASSWORD: root
-            POSTGRES_USER: root
+            POSTGRES_DB: '${DB_DATABASE}'
+            POSTGRES_PASSWORD: '${DB_PASSWORD}'
+            POSTGRES_USER: '${DB_USERNAME}'
         ports:
-            - "8030:3306"
+            - "8030:5432"
         container_name: pgsql
