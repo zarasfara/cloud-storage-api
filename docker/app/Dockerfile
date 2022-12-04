@@ -25,3 +25,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 
 WORKDIR /var/www
+
+ADD . /var/www
+RUN chown -R www-data:www-data /var/www
