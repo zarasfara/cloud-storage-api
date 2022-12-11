@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "b169e1eb-0d9e-4f81-a97f-8a234661dbce",
+		"name": "Cloud storage api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19485229"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IjhZVXB4QmE0emE5VmUrc3RlWGErUGc9PSIsInZhbHVlIjoiYkJtSnNTMnBNS20wVEp0S2lXeDBWeXFLLzRPVnZxd3p1dFBVc2JrMGtZNXc1ZmtRbkRjdUZYL1FLa21FcWU4U1NNdFdQZXJDOXFVOThGc0ZqdlhoT05zVFJKNmNrNWlkbDNadlZLM3d2a0RJT2lmOGtjWURxUGdpdFhuOXAvWjMiLCJtYWMiOiI3NzM4MGIyMzg2MzA0ZGRjNjZjZWU1OTg3NDA3ZTZlNzUwZGJmMDQ2ZDQ4NjllMmY4ZDMyNTc4Njc0MjA4ODgzIiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/login?name=Test%20User&password=password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Test%20User"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IjMzYmhMNkhjdXNFdlJSV0dWcEFpVXc9PSIsInZhbHVlIjoidlhrMGJiZ2k5SmR4cGk1dy9ad1JUTkUzZEZ5aGZsUlc3Z3hJUjNoOFkvTFJwZ0E5QmVWTmRsb2JDd1AyVzkza1d4WnpFeFVZdEhLWStobEhxZFF5UGhRSTJCRTU5SnVhWmpYOW40MG5DNHFTMHhUOUNDZGFZd083M3ZtdlA1YmsiLCJtYWMiOiI5Y2NmMzA1YTJiNmU4ODM4YWYyMDI5MzRiZjE3YTg3N2JkZGU3YzEwN2I5NmNlODFjNTVkMGQ5NTE0MTViZjk2IiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/register?name=qwe&email=test@email.com&password=testtest",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "qwe"
+						},
+						{
+							"key": "email",
+							"value": "test@email.com"
+						},
+						{
+							"key": "password",
+							"value": "testtest"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get csrf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/sanctum/csrf-cookie",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"sanctum",
+						"csrf-cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if auth",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1:8000",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IjhZVXB4QmE0emE5VmUrc3RlWGErUGc9PSIsInZhbHVlIjoiYkJtSnNTMnBNS20wVEp0S2lXeDBWeXFLLzRPVnZxd3p1dFBVc2JrMGtZNXc1ZmtRbkRjdUZYL1FLa21FcWU4U1NNdFdQZXJDOXFVOThGc0ZqdlhoT05zVFJKNmNrNWlkbDNadlZLM3d2a0RJT2lmOGtjWURxUGdpdFhuOXAvWjMiLCJtYWMiOiI3NzM4MGIyMzg2MzA0ZGRjNjZjZWU1OTg3NDA3ZTZlNzUwZGJmMDQ2ZDQ4NjllMmY4ZDMyNTc4Njc0MjA4ODgzIiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
