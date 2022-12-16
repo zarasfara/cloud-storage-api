@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class RegisterController extends Controller
@@ -19,6 +20,8 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create($userDto);
+
+        Storage::disk('local')->makeDirectory($request->name);
 
         Auth::login($user);
 
