@@ -8,22 +8,22 @@ use Illuminate\Support\Facades\Storage;
 
 class FolderService
 {
-    public function createFolder(string $folderName, int $userId)
+    public function createFolder(?string $folderName)
     {
         Storage::makeDirectory(Auth::user()->name . '/' . $folderName);
 
         Folder::create([
             'name' => $folderName,
-            'user_id' => $userId
+            'user_id' => Auth::user()->id
         ]);
     }
 
     /**
-     * @param $userName
-     * @return array
+     * @return int
      */
-    public function scanDisk($userName): array
+    public function getDiskSize(): int
     {
-        return Storage::allFiles($userName);
+        return auth()->user()->files()->sum('size');
+
     }
 }

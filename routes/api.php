@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\FileController;
 use App\Http\Controllers\Api\V1\FolderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->name('api.')->group(function () {
     Route::post('create-folder', [FolderController::class, 'createFolder']);
-    Route::get('/', [FolderController::class,'showDisk']);
+
     Route::get('scan-disk', [FolderController::class,'scanDisk'])->name('scan-disk');
+
+    Route::post('upload-file/{folder?}', [FileController::class,'uploadFile']);
+
+    Route::put('/rename-file/{file}', [FileController::class,'renameFile']);
+
+    Route::delete('remove-file/{file}', [FileController::class, 'removeFile']);
+
+    Route::get('/download/{file}', [FileController::class,'downloadFile']);
 });

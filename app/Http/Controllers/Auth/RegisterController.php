@@ -24,10 +24,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        Folder::create([
-            'name' => $user['name'],
-            'user_id' => $user['id']
-        ]);
+        $service->createFolder(null);
 
         return response('register successful!', Response::HTTP_OK );
     }

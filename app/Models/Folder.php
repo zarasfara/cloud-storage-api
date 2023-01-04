@@ -20,4 +20,9 @@ class Folder extends Model
         'user_id',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'name';
+    }
+
 }
